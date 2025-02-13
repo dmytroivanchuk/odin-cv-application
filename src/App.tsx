@@ -1,5 +1,11 @@
-function App() {
-  return <h1>Frontend Template</h1>;
-}
+import Form from "./components/Form";
 
-export default App;
+export default function App() {
+  return (
+    <div>
+      <h1>CV Generator</h1>
+      <p>Input information below to generate a CV!</p>
+      <Form />
+    </div>
+  );
+}
