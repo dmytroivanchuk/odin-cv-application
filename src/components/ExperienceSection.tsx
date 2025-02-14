@@ -5,21 +5,27 @@ type ExperienceSectionProps = {
   data: Experience[];
   onAddClick: () => void;
   onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onRemoveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 export default function ExperienceSection({
   data,
   onAddClick,
   onFieldChange,
+  onRemoveClick,
 }: ExperienceSectionProps) {
   return (
-    <fieldset>
-      <legend>Experience</legend>
-      <button type="button" onClick={onAddClick}>
-        Add
-      </button>
+    <fieldset className="flex flex-col gap-4 rounded-md bg-white px-2 pt-5 pb-6">
+      <div>
+        <legend className="text-xl">Experience</legend>
+      </div>
+
       {data.map((experience) => (
-        <div key={experience.id}>
+        <div
+          className="flex flex-col gap-4 rounded-md bg-gray-100 px-2 pt-5 pb-5"
+          key={experience.id}
+        >
+          <h3 className="text-lg">&#8470;{experience.position}</h3>
           <Field
             type="text"
             id="company-name"
@@ -56,8 +62,23 @@ export default function ExperienceSection({
             value={experience.description}
             onChange={onFieldChange}
           />
+          <button
+            className="mt-4 mr-2 cursor-pointer self-end rounded-sm bg-red-800 px-4 py-1 text-white"
+            type="button"
+            data-id={experience.id}
+            onClick={onRemoveClick}
+          >
+            Remove
+          </button>
         </div>
       ))}
+      <button
+        className="mt-2 ml-2 cursor-pointer self-start rounded-sm bg-green-800 px-4 py-1 text-white"
+        type="button"
+        onClick={onAddClick}
+      >
+        + Add
+      </button>
     </fieldset>
   );
 }

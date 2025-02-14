@@ -35,6 +35,7 @@ export default function Form() {
   function handleAddEducationClick() {
     const newEducation = {
       id: self.crypto.randomUUID(),
+      position: cv.educations.length + 1,
       schoolName: "",
       titleOfStudy: "",
       dateFromTo: "",
@@ -65,9 +66,24 @@ export default function Form() {
     setCV(nextCV);
   }
 
+  function handleRemoveEducationClick(e: React.MouseEvent<HTMLButtonElement>) {
+    const nextEducations = cv.educations.filter(
+      (education) =>
+        education.id !== (e.target as HTMLButtonElement).dataset.id,
+    );
+
+    const nextCV: CV = {
+      ...cv,
+      educations: nextEducations,
+    };
+
+    setCV(nextCV);
+  }
+
   function handleAddExperienceClick() {
     const newExperience = {
       id: self.crypto.randomUUID(),
+      position: cv.experiences.length + 1,
       companyName: "",
       positionTitle: "",
       dateFromTo: "",
@@ -99,8 +115,25 @@ export default function Form() {
     setCV(nextCV);
   }
 
+  function handleRemoveExperienceClick(e: React.MouseEvent<HTMLButtonElement>) {
+    const nextExperiences = cv.experiences.filter(
+      (experience) =>
+        experience.id !== (e.target as HTMLButtonElement).dataset.id,
+    );
+
+    const nextCV: CV = {
+      ...cv,
+      experiences: nextExperiences,
+    };
+
+    setCV(nextCV);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="flex w-[calc(100%-(var(--spacing)*8))] flex-col gap-10 rounded-lg bg-gray-100 px-3 py-8"
+      onSubmit={handleSubmit}
+    >
       <GeneralSection
         data={cv.general}
         onFieldChange={handleGeneralFieldChange}
@@ -109,13 +142,17 @@ export default function Form() {
         data={cv.educations}
         onAddClick={handleAddEducationClick}
         onFieldChange={handleEducationFieldChange}
+        onRemoveClick={handleRemoveEducationClick}
       />
       <ExperienceSection
         data={cv.experiences}
         onAddClick={handleAddExperienceClick}
         onFieldChange={handleExperienceFieldChange}
+        onRemoveClick={handleRemoveExperienceClick}
       />
-      <button>Submit</button>
+      <button className="cursor-pointer self-center rounded-sm bg-blue-800 px-4 py-1 text-white">
+        Submit
+      </button>
     </form>
   );
 }

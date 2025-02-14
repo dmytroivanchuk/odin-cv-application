@@ -13,6 +13,7 @@ export type General = {
 
 export type Education = {
   id: string;
+  position: number;
   schoolName: string;
   titleOfStudy: string;
   dateFromTo: string;
@@ -20,6 +21,7 @@ export type Education = {
 
 export type Experience = {
   id: string;
+  position: number;
   companyName: string;
   positionTitle: string;
   dateFromTo: string;

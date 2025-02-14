@@ -11,8 +11,10 @@ export default function GeneralSection({
   onFieldChange,
 }: GeneralSectionProps) {
   return (
-    <fieldset>
-      <legend>General</legend>
+    <fieldset className="flex flex-col gap-4 rounded-md bg-white px-2 pt-5 pb-11">
+      <div>
+        <legend className="text-xl">General</legend>
+      </div>
       <Field
         type="text"
         id="first-name"

@@ -18,9 +18,10 @@ export default function Field({
   onChange,
 }: FieldProps) {
   return (
-    <div>
+    <div className="flex flex-col gap-1">
       <label htmlFor={id}>{title}</label>
       <input
+        className="rounded-sm border border-gray-500 bg-white px-1"
         type={type}
         id={id}
         data-id={dataId}
