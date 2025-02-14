@@ -4,15 +4,15 @@ import Field from "./Field";
 type ExperienceSectionProps = {
   data: Experience[];
   onAddClick: () => void;
-  onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemoveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function ExperienceSection({
   data,
   onAddClick,
-  onFieldChange,
   onRemoveClick,
+  onFieldChange,
 }: ExperienceSectionProps) {
   return (
     <fieldset className="flex flex-col gap-4 rounded-md bg-white px-2 pt-5 pb-6">

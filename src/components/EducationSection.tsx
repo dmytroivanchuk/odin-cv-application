@@ -4,15 +4,15 @@ import Field from "./Field";
 type EducationSectionProps = {
   data: Education[];
   onAddClick: () => void;
-  onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemoveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function EducationSection({
   data,
   onAddClick,
-  onFieldChange,
   onRemoveClick,
+  onFieldChange,
 }: EducationSectionProps) {
   return (
     <fieldset className="flex flex-col gap-4 rounded-md bg-white px-2 pt-5 pb-6">
