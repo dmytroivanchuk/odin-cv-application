@@ -32,6 +32,14 @@ export default function GeneralSection({
         onChange={onFieldChange}
       />
       <Field
+        type="text"
+        id="position-title"
+        name="positionTitle"
+        title="Position title:"
+        value={data.positionTitle}
+        onChange={onFieldChange}
+      />
+      <Field
         type="email"
         id="email"
         name="email"

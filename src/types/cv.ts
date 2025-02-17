@@ -7,6 +7,7 @@ export type CV = {
 export type General = {
   firstName: string;
   lastName: string;
+  positionTitle: string;
   email: string;
   phone: string;
 };
@@ -17,6 +18,7 @@ export type Education = {
   schoolName: string;
   titleOfStudy: string;
   dateFromTo: string;
+  location: string;
 };
 
 export type Experience = {
@@ -25,5 +27,6 @@ export type Experience = {
   companyName: string;
   positionTitle: string;
   dateFromTo: string;
+  location: string;
   description: string;
 };

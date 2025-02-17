@@ -7,6 +7,7 @@ const emptyCV: CV = {
   general: {
     firstName: "",
     lastName: "",
+    positionTitle: "",
     email: "",
     phone: "",
   },
@@ -39,6 +40,7 @@ export default function App() {
       schoolName: "",
       titleOfStudy: "",
       dateFromTo: "",
+      location: "",
     };
 
     const nextCV: CV = {
@@ -87,6 +89,7 @@ export default function App() {
       companyName: "",
       positionTitle: "",
       dateFromTo: "",
+      location: "",
       description: "",
     };
 
@@ -129,27 +132,35 @@ export default function App() {
     setCV(nextCV);
   }
 
-  return (
-    <div className="my-10 flex flex-col items-center justify-center gap-8">
+  function handleCVEdit() {
+    setIsFormHidden(false);
+  }
+
+  const home = (
+    <>
       <div className="flex flex-col items-center gap-2">
         <h1 className="text-4xl">CV Generator</h1>
         <h2>Input information below to generate a CV!</h2>
       </div>
-      {isFormHidden ? (
-        <CVContent cv={cv} />
-      ) : (
-        <Form
-          cv={cv}
-          onSubmit={handleSubmit}
-          onGeneralFieldChange={handleGeneralFieldChange}
-          onEducationAddClick={handleEducationAddClick}
-          onEducationRemoveClick={handleEducationRemoveClick}
-          onEducationFieldChange={handleEducationFieldChange}
-          onExperienceAddClick={handleExperienceAddClick}
-          onExperienceRemoveClick={handleExperienceRemoveClick}
-          onExperienceFieldChange={handleExperienceFieldChange}
-        />
-      )}
+      <Form
+        cv={cv}
+        onSubmit={handleSubmit}
+        onGeneralFieldChange={handleGeneralFieldChange}
+        onEducationAddClick={handleEducationAddClick}
+        onEducationRemoveClick={handleEducationRemoveClick}
+        onEducationFieldChange={handleEducationFieldChange}
+        onExperienceAddClick={handleExperienceAddClick}
+        onExperienceRemoveClick={handleExperienceRemoveClick}
+        onExperienceFieldChange={handleExperienceFieldChange}
+      />
+    </>
+  );
+
+  const cvContent = <CVContent cv={cv} onEdit={handleCVEdit} />;
+
+  return (
+    <div className="my-10 flex flex-col items-center justify-center gap-8">
+      {isFormHidden ? cvContent : home}
     </div>
   );
 }

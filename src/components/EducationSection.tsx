@@ -53,6 +53,15 @@ export default function EducationSection({
             value={education.dateFromTo}
             onChange={onFieldChange}
           />
+          <Field
+            type="text"
+            id="education-location"
+            dataId={education.id}
+            name="location"
+            title="Location:"
+            value={education.location}
+            onChange={onFieldChange}
+          />
           <button
             className="mt-4 mr-2 cursor-pointer self-end rounded-sm bg-red-800 px-4 py-1 text-white"
             type="button"

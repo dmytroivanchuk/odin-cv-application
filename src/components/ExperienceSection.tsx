@@ -5,7 +5,9 @@ type ExperienceSectionProps = {
   data: Experience[];
   onAddClick: () => void;
   onRemoveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onFieldChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 };
 
 export default function ExperienceSection({
@@ -55,13 +57,24 @@ export default function ExperienceSection({
           />
           <Field
             type="text"
-            id="description"
+            id="experience-location"
             dataId={experience.id}
-            name="description"
-            title="Description:"
-            value={experience.description}
+            name="location"
+            title="Location:"
+            value={experience.location}
             onChange={onFieldChange}
           />
+          <div className="flex flex-col gap-1">
+            <label htmlFor="description">Description:</label>
+            <textarea
+              className="field-sizing-content min-h-19 resize-none rounded-sm border border-gray-500 bg-white px-1"
+              id="description"
+              data-id={experience.id}
+              name="description"
+              value={experience.description}
+              onChange={onFieldChange}
+            ></textarea>
+          </div>
           <button
             className="mt-4 mr-2 cursor-pointer self-end rounded-sm bg-red-800 px-4 py-1 text-white"
             type="button"
