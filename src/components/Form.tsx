@@ -12,7 +12,9 @@ type FormProps = {
   onEducationFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onExperienceAddClick: () => void;
   onExperienceRemoveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  onExperienceFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onExperienceFieldChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 };
 
 export default function Form({

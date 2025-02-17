@@ -115,7 +115,9 @@ export default function App() {
     setCV(nextCV);
   }
 
-  function handleExperienceFieldChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleExperienceFieldChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
     const nextExperiences = cv.experiences.map((experience) => {
       if (experience.id === e.target.dataset.id) {
         return { ...experience, [e.target.name]: e.target.value };
